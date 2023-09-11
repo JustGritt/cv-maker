@@ -8,9 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Hello world action step
-      uses: actions/hello-world-javascript-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-        greeting: 'Hello'
+      - name: Install dependencies
+        run: bun install
+      - name: build
+        run: bun build
+        run: bun run build
+      - name: run the server
+        run: |
+          bun run preview &
+          sleep 5
+          curl http://localhost:4173
+
+
