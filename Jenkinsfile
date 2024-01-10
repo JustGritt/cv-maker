@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    options {
+        retry(2)
+    }
+
+    triggers {
+        cron('H * * * */1)
+    }
+
     stages {
         stage('Build') {
             steps {
