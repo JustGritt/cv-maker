@@ -5,10 +5,6 @@ pipeline {
         retry(2)
     }
 
-    triggers {
-        cron('H * * * *)
-    }
-
     stages {
         stage('Build') {
             steps {
